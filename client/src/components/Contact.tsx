@@ -24,9 +24,13 @@ export function Contact() {
                 </li>
               </ul>
             </div>
-            {/* Vision 2030 Logo Placeholder - purely CSS represented */}
-            <div className="h-24 w-32 border-2 border-emerald-500/30 rounded-lg flex items-center justify-center text-emerald-600 font-bold text-xs tracking-widest bg-emerald-500/5">
-              VISION 2030
+            {/* Vision 2030 Logo */}
+            <div className="flex items-center justify-center p-2 bg-white/5 rounded-lg border border-white/10 w-[200px]">
+              <img 
+                src="/attached_assets/Saudi_Vision_2030_logo.svg_1766995571567.png" 
+                alt="Saudi Vision 2030" 
+                className="w-full h-auto object-contain dark:invert"
+              />
             </div>
           </div>
         </div>
