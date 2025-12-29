@@ -16,7 +16,7 @@ export function Partners() {
   const partners = [
     { key: 'partner1', icon: Battery, color: 'text-red-600 bg-red-600/10', href: 'https://store.hpacsa.com/' },
     { key: 'partner2', icon: Lock, color: 'text-cyan-500 bg-cyan-500/10' },
-    { key: 'partner3', icon: Plane, color: 'text-blue-500 bg-blue-500/10' },
+    { key: 'partner3', icon: Plane, color: 'text-blue-500 bg-blue-500/10', href: 'https://www.dronevolt.com/en/', logo: '/attached_assets/_شركة_هايست_بيك_أوتوموتيف_(2)_1766999469030.png' },
   ];
 
   return (
@@ -43,9 +43,15 @@ export function Partners() {
               const CardBody = (
                 <Card className="bg-card border-border h-[350px] flex flex-col justify-between group hover:border-primary/50 hover:shadow-lg transition-all duration-500 cursor-pointer">
                   <CardContent className="flex flex-col items-center justify-center p-8 h-full text-center">
-                    <div className={`h-20 w-20 rounded-2xl flex items-center justify-center mb-6 ${item.color} group-hover:scale-110 transition-transform duration-500`}>
-                      <item.icon className="h-10 w-10" />
-                    </div>
+                    {item.logo ? (
+                      <div className="h-20 w-40 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <img src={item.logo} alt={t(`${item.key}Title`)} className="max-h-full max-w-full object-contain" />
+                      </div>
+                    ) : (
+                      <div className={`h-20 w-20 rounded-2xl flex items-center justify-center mb-6 ${item.color} group-hover:scale-110 transition-transform duration-500`}>
+                        <item.icon className="h-10 w-10" />
+                      </div>
+                    )}
                     <h3 className={`text-2xl font-bold mb-4 tracking-wide text-foreground group-hover:text-primary transition-colors ${dir === 'ltr' ? 'font-en-headings' : ''}`}>{t(`${item.key}Title`)}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {t(`${item.key}Desc`)}
