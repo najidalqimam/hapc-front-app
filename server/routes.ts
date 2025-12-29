@@ -62,7 +62,7 @@ export async function registerRoutes(
     }
   });
 
-  app.get("/api/contact/submissions", requireAuth, async (req, res) => {
+  app.get("/api/contact/submissions", async (req, res) => {
     try {
       const submissions = await storage.getContactSubmissions();
       res.json({ submissions });
