@@ -79,7 +79,7 @@ export function ContactModal({ children, open, onOpenChange }: ContactModalProps
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      {children && <DialogTrigger asChild>{children}</DialogTrigger>}
+      {children ? <DialogTrigger asChild>{children}</DialogTrigger> : null}
       <DialogContent className="sm:max-w-[500px]" dir={dir}>
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-primary">{t('contactTitle')}</DialogTitle>
