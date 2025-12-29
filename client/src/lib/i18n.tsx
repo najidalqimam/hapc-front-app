@@ -72,6 +72,15 @@ export const content: Translations = {
   vision2030p2: { ar: 'خلق فرص عمل نوعية للكفاءات الوطنية', en: 'Creating quality job opportunities for national talent' },
   vision2030p3: { ar: 'تعزيز قدرات المملكة في مجالات الأمن والتنقل', en: 'Enhancing the Kingdom’s capabilities in security and mobility' },
 
+  // Contact Form
+  formName: { ar: 'الاسم', en: 'Name' },
+  formEmail: { ar: 'البريد الإلكتروني', en: 'Email' },
+  formPhone: { ar: 'رقم الهاتف', en: 'Phone Number' },
+  formMessage: { ar: 'الرسالة', en: 'Message' },
+  formSubmit: { ar: 'إرسال', en: 'Send Message' },
+  formSuccessTitle: { ar: 'تم الإرسال بنجاح', en: 'Message Sent' },
+  formSuccessDesc: { ar: 'شكراً لتواصلك معنا. سنقوم بالرد عليك في أقرب وقت.', en: 'Thank you for contacting us. We will get back to you shortly.' },
+  
   // Contact
   contactTitle: { ar: 'تواصل معنا', en: 'Contact Us' },
   address: { ar: 'الرياض – طريق الملك سعود – أبراج السنام، الطابق الثالث، مكتب رقم 37', en: 'Al Sanam Towers, 3rd Floor, Office Number 37, King Saud Road, Riyadh' },

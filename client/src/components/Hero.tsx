@@ -3,6 +3,7 @@ import { useLanguage } from '@/lib/i18n';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import heroBg from '@assets/generated_images/futuristic_geometric_mountain_peak_wireframe_in_dark_blue_and_silver.png';
+import { ContactModal } from '@/components/ContactModal';
 
 export function Hero() {
   const { t, dir } = useLanguage();
@@ -57,12 +58,14 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="h-14 text-lg px-8 rounded-none skew-x-[-10deg] border border-primary bg-primary hover:bg-primary/90 text-primary-foreground transition-all group shadow-lg shadow-primary/20">
-                <span className="skew-x-[10deg] flex items-center gap-2">
-                  {t('contact')}
-                  {dir === 'rtl' ? <ChevronRight className="h-5 w-5 group-hover:-translate-x-1 transition-transform" /> : <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />}
-                </span>
-              </Button>
+              <ContactModal>
+                <Button size="lg" className="h-14 text-lg px-8 rounded-none skew-x-[-10deg] border border-primary bg-primary hover:bg-primary/90 text-primary-foreground transition-all group shadow-lg shadow-primary/20">
+                  <span className="skew-x-[10deg] flex items-center gap-2">
+                    {t('contact')}
+                    {dir === 'rtl' ? <ChevronRight className="h-5 w-5 group-hover:-translate-x-1 transition-transform" /> : <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />}
+                  </span>
+                </Button>
+              </ContactModal>
               <Button size="lg" variant="ghost" className="h-14 text-lg px-8 rounded-none skew-x-[-10deg] text-foreground hover:bg-foreground/5 border border-foreground/10">
                 <span className="skew-x-[10deg]">{t('about')}</span>
               </Button>
