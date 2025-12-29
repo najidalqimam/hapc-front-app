@@ -71,13 +71,35 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="h-full min-h-[300px] bg-secondary rounded-2xl flex items-center justify-center text-muted-foreground">
-            {/* Map Placeholder */}
-            <div className="text-center p-8">
-              <MapPin className="h-12 w-12 mx-auto mb-4 opacity-50" />
-              <p>Map Integration Placeholder</p>
-              <p className="text-sm opacity-60 mt-2">{t('address')}</p>
-            </div>
+          <div className="h-full min-h-[300px] bg-secondary rounded-2xl overflow-hidden relative group">
+            <a 
+              href="https://maps.app.goo.gl/DTEoSoFj13mcLM9U6" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="absolute inset-0 block"
+            >
+              {/* Fallback Map Image or Iframe if available, otherwise a styled placeholder */}
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.717637508492!2d46.6719875!3d24.7025816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03673c683707%3A0xe677f5231c57373f!2sAl%20Sanam%20Towers!5e0!3m2!1sen!2ssa!4v1709040000000!5m2!1sen!2ssa" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0, filter: 'grayscale(100%) invert(90%)' }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full opacity-80 group-hover:opacity-100 transition-opacity dark:invert-0"
+              ></iframe>
+              
+              <div className="absolute bottom-4 left-4 right-4 bg-background/90 backdrop-blur-sm p-4 rounded-xl border border-border flex items-center gap-3 shadow-lg group-hover:scale-[1.02] transition-transform">
+                <div className="bg-primary/10 p-2 rounded-full text-primary">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="font-bold text-sm">{t('contact')}</p>
+                  <p className="text-xs text-muted-foreground line-clamp-1">{t('address')}</p>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
 

@@ -74,7 +74,7 @@ export const content: Translations = {
 
   // Contact
   contactTitle: { ar: 'تواصل معنا', en: 'Contact Us' },
-  address: { ar: 'الرياض – طريق الملك سعود – أبراج الصنم', en: 'Riyadh – King Saud Road – Al Sanam Towers' },
+  address: { ar: 'الرياض – طريق الملك سعود – أبراج السنام، الطابق الثالث، مكتب رقم 37', en: 'Al Sanam Towers, 3rd Floor, Office Number 37, King Saud Road, Riyadh' },
   cta: { ar: 'شارك النجاح مع الأفضل. قوِّ مشاريعك معنا.', en: 'Share success with the best. Power your projects with us.' },
   copyright: { ar: '© 2025 هايست بيك أوتوموتيف. جميع الحقوق محفوظة.', en: '© 2025 Highest Peak Automotive. All rights reserved.' },
 };
