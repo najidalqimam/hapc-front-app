@@ -27,7 +27,7 @@ export function Contact() {
             {/* Vision 2030 Logo */}
             <div className="flex items-center justify-center p-2 bg-white/5 rounded-lg border border-white/10 w-[200px]">
               <img 
-                src="/attached_assets/Saudi_Vision_2030_logo.svg_1766995571567.png" 
+                src="/attached_assets/Saudi_Vision_2030_logo.svg_1766996095753.png" 
                 alt="Saudi Vision 2030" 
                 className="w-full h-auto object-contain dark:invert"
               />
