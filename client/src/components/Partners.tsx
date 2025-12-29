@@ -16,7 +16,7 @@ export function Partners() {
   const partners = [
     { key: 'partner1', icon: Battery, color: 'text-red-600 bg-red-600/10', href: 'https://store.hpacsa.com/' },
     { key: 'partner2', icon: Lock, color: 'text-cyan-500 bg-cyan-500/10' },
-    { key: 'partner3', icon: Plane, color: 'text-blue-500 bg-blue-500/10', href: 'https://www.dronevolt.com/en/', logo: '/attached_assets/_شركة_هايست_بيك_أوتوموتيف_(2)_1766999469030.png' },
+    { key: 'partner3', icon: Plane, color: 'text-blue-500 bg-blue-500/10', href: 'https://www.dronevolt.com/en/', logo: '/attached_assets/_شركة_هايست_بيك_أوتوموتيف_(2)_1766999640808.png' },
   ];
 
   return (
