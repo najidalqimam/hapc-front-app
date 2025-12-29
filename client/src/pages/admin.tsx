@@ -1,10 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';
 import { ar } from 'date-fns/locale';
-import { Mail, Phone, User, MessageSquare, RefreshCw, Inbox } from 'lucide-react';
+import { RefreshCw, Inbox } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 
 interface ContactSubmission {
   id: number;
@@ -68,83 +76,74 @@ export default function Admin() {
 
         <h2 className="text-xl font-semibold mb-4">طلبات التواصل</h2>
 
-        {isLoading ? (
-          <div className="space-y-4">
-            {[1, 2, 3].map((i) => (
-              <Card key={i}>
-                <CardContent className="p-6">
-                  <Skeleton className="h-6 w-48 mb-4" />
-                  <Skeleton className="h-4 w-32 mb-2" />
-                  <Skeleton className="h-4 w-40 mb-2" />
-                  <Skeleton className="h-20 w-full" />
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        ) : submissions.length === 0 ? (
-          <Card>
-            <CardContent className="p-12 text-center">
-              <Inbox className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-              <p className="text-muted-foreground text-lg">لا توجد رسائل بعد</p>
-            </CardContent>
-          </Card>
-        ) : (
-          <div className="space-y-4">
-            {submissions.map((submission) => (
-              <Card key={submission.id} data-testid={`card-submission-${submission.id}`}>
-                <CardContent className="p-6">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 bg-primary/10 rounded-full">
-                        <User className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-lg" data-testid={`text-name-${submission.id}`}>
-                          {submission.name}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          {format(new Date(submission.submittedAt), 'PPpp', { locale: ar })}
+        <Card>
+          <CardContent className="p-0">
+            {isLoading ? (
+              <div className="p-6 space-y-4">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="flex gap-4">
+                    <Skeleton className="h-6 w-32" />
+                    <Skeleton className="h-6 w-40" />
+                    <Skeleton className="h-6 w-32" />
+                    <Skeleton className="h-6 flex-1" />
+                  </div>
+                ))}
+              </div>
+            ) : submissions.length === 0 ? (
+              <div className="p-12 text-center">
+                <Inbox className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+                <p className="text-muted-foreground text-lg">لا توجد رسائل بعد</p>
+              </div>
+            ) : (
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="text-right">الاسم</TableHead>
+                    <TableHead className="text-right">البريد الإلكتروني</TableHead>
+                    <TableHead className="text-right">رقم الهاتف</TableHead>
+                    <TableHead className="text-right">الرسالة</TableHead>
+                    <TableHead className="text-right">التاريخ</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {submissions.map((submission) => (
+                    <TableRow key={submission.id} data-testid={`row-submission-${submission.id}`}>
+                      <TableCell className="font-medium" data-testid={`text-name-${submission.id}`}>
+                        {submission.name}
+                      </TableCell>
+                      <TableCell>
+                        <a 
+                          href={`mailto:${submission.email}`} 
+                          className="text-primary hover:underline"
+                          data-testid={`link-email-${submission.id}`}
+                        >
+                          {submission.email}
+                        </a>
+                      </TableCell>
+                      <TableCell dir="ltr" className="text-right">
+                        <a 
+                          href={`tel:${submission.phone}`} 
+                          className="text-primary hover:underline"
+                          data-testid={`link-phone-${submission.id}`}
+                        >
+                          {submission.phone}
+                        </a>
+                      </TableCell>
+                      <TableCell className="max-w-xs">
+                        <p className="line-clamp-2" data-testid={`text-message-${submission.id}`}>
+                          {submission.message}
                         </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Mail className="h-4 w-4" />
-                      <a 
-                        href={`mailto:${submission.email}`} 
-                        className="hover:text-primary transition-colors"
-                        data-testid={`link-email-${submission.id}`}
-                      >
-                        {submission.email}
-                      </a>
-                    </div>
-                    <div className="flex items-center gap-2 text-muted-foreground" dir="ltr">
-                      <Phone className="h-4 w-4" />
-                      <a 
-                        href={`tel:${submission.phone}`} 
-                        className="hover:text-primary transition-colors"
-                        data-testid={`link-phone-${submission.id}`}
-                      >
-                        {submission.phone}
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="bg-secondary/50 rounded-lg p-4">
-                    <div className="flex items-start gap-2">
-                      <MessageSquare className="h-4 w-4 text-muted-foreground mt-1 shrink-0" />
-                      <p className="text-foreground whitespace-pre-wrap" data-testid={`text-message-${submission.id}`}>
-                        {submission.message}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
+                      </TableCell>
+                      <TableCell className="text-muted-foreground whitespace-nowrap">
+                        {format(new Date(submission.submittedAt), 'yyyy/MM/dd HH:mm', { locale: ar })}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            )}
+          </CardContent>
+        </Card>
       </main>
     </div>
   );
