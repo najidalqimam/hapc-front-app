@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/lib/i18n';
-import { Battery, Lock, Plane, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Battery, Lock, Plane } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
@@ -16,7 +16,7 @@ export function Partners() {
   const partners = [
     { key: 'partner1', icon: Battery, color: 'text-red-600 bg-red-600/10', href: 'https://store.hpacsa.com/' },
     { key: 'partner2', icon: Lock, color: 'text-cyan-500 bg-cyan-500/10' },
-    { key: 'partner3', icon: Plane, color: 'text-blue-500 bg-blue-500/10', href: 'https://www.dronevolt.com/en/', logo: '/attached_assets/_شركة_هايست_بيك_أوتوموتيف_(2)_1766999640808.png' },
+    { key: 'partner3', color: 'text-blue-500 bg-blue-500/10', href: 'https://www.dronevolt.com/en/', logo: '/attached_assets/_شركة_هايست_بيك_أوتوموتيف_(2)_1766999640808.png' },
   ];
 
   return (
@@ -47,11 +47,11 @@ export function Partners() {
                       <div className="h-20 w-40 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                         <img src={item.logo} alt={t(`${item.key}Title`)} className="max-h-full max-w-full object-contain" />
                       </div>
-                    ) : (
+                    ) : item.icon ? (
                       <div className={`h-20 w-20 rounded-2xl flex items-center justify-center mb-6 ${item.color} group-hover:scale-110 transition-transform duration-500`}>
                         <item.icon className="h-10 w-10" />
                       </div>
-                    )}
+                    ) : null}
                     <h3 className={`text-2xl font-bold mb-4 tracking-wide text-foreground group-hover:text-primary transition-colors ${dir === 'ltr' ? 'font-en-headings' : ''}`}>{t(`${item.key}Title`)}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {t(`${item.key}Desc`)}
