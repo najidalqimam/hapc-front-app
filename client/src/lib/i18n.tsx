@@ -48,12 +48,12 @@ export const content: Translations = {
 
   // Partners
   partnersTitle: { ar: 'شركاؤنا الاستراتيجيون', en: 'Strategic Partners' },
-  partner1Title: { ar: 'ELITO Batteries', en: 'ELITO Batteries' },
-  partner1Desc: { ar: 'بطاريات عالية التحمل مصممة خصيصًا لتناسب المناخ القاسي في المملكة.', en: 'High-endurance batteries designed specifically for the Kingdom’s harsh climate.' },
-  partner2Title: { ar: 'CYBERTEQ', en: 'CYBERTEQ' },
-  partner2Desc: { ar: 'حلول أمن المركبات والتقنيات الذكية وأنظمة الحماية المتقدمة.', en: 'Vehicle security solutions, smart technologies, and advanced protection systems.' },
-  partner3Title: { ar: 'DRONE VOLT', en: 'DRONE VOLT' },
-  partner3Desc: { ar: 'طائرات بدون طيار احترافية للأمن والتفتيش ورسم الخرائط.', en: 'Professional drones for security, inspection, and mapping.' },
+  partner1Title: { ar: 'ELITO Batteries - بطاريات إليتو', en: 'ELITO Batteries' },
+  partner1Desc: { ar: 'الموزع الحصري لبطاريات ELITO من مجموعة Amara Raja العالمية. بطاريات عالية التحمل مصممة خصيصًا لتناسب المناخ القاسي في المملكة، وتوفر أداءً طويل الأمد لمختلف أنواع المركبات.', en: 'Exclusive distributor of ELITO batteries from the global Amara Raja Group. High-endurance batteries specifically designed to suit the Kingdom’s harsh climate, providing long-lasting performance for various vehicle types.' },
+  partner2Title: { ar: 'CYBERTEQ - سايبر تك', en: 'CYBERTEQ' },
+  partner2Desc: { ar: 'الموزع الحصري لحلول أمن المركبات والتقنيات الذكية، وتشمل أنظمة الحماية المتقدمة، التليماتكس، والإلكترونيات المتطورة للسيارات.', en: 'Exclusive distributor of vehicle security solutions and smart technologies, including advanced protection systems, telematics, and advanced automotive electronics.' },
+  partner3Title: { ar: 'DRONE VOLT - درون فولت', en: 'DRONE VOLT' },
+  partner3Desc: { ar: 'الموزع الحصري لشركة فرنسية رائدة في تصنيع الطائرات بدون طيار الاحترافية، وتقدم حلولًا متقدمة في مجالات الأمن، التفتيش، رسم الخرائط، والتصوير الاحترافي.', en: 'Exclusive distributor for a leading French manufacturer of professional drones, offering advanced solutions in security, inspection, mapping, and professional filming.' },
 
   // Markets
   marketsTitle: { ar: 'أسواقنا وعملاؤنا', en: 'Markets & Clients' },
