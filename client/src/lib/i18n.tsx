@@ -47,7 +47,7 @@ export const content: Translations = {
   value4Desc: { ar: 'نؤمن بأن نجاح عملائنا هو امتداد لنجاحنا.', en: 'We believe our customers’ success is an extension of our own.' },
 
   // Partners
-  partnersTitle: { ar: 'شركاؤنا الاستراتيجيون', en: 'Strategic Partners' },
+  partnersTitle: { ar: 'شركاؤنا', en: 'Our Partners' },
   partner1Title: { ar: 'بطاريات إليتو', en: 'ELITO Batteries' },
   partner1Desc: { ar: 'الموزع الحصري لبطاريات ELITO من مجموعة Amara Raja العالمية. بطاريات عالية التحمل مصممة خصيصًا لتناسب المناخ القاسي في المملكة، وتوفر أداءً طويل الأمد لمختلف أنواع المركبات.', en: 'Exclusive distributor of ELITO batteries from the global Amara Raja Group. High-endurance batteries specifically designed to suit the Kingdom’s harsh climate, providing long-lasting performance for various vehicle types.' },
   partner2Title: { ar: 'سايبر تك', en: 'CYBERTEQ' },
