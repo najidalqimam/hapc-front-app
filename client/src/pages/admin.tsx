@@ -1,10 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
+import { useLocation } from 'wouter';
+import { useEffect } from 'react';
 import { format } from 'date-fns';
 import { ar } from 'date-fns/locale';
-import { RefreshCw, Inbox } from 'lucide-react';
+import { RefreshCw, Inbox, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useToast } from '@/hooks/use-toast';
 import {
   Table,
   TableBody,
@@ -24,14 +27,67 @@ interface ContactSubmission {
 }
 
 export default function Admin() {
+  const [, setLocation] = useLocation();
+  const { toast } = useToast();
+
+  const { data: authData, isLoading: authLoading } = useQuery<{ isAuthenticated: boolean }>({
+    queryKey: ['/api/auth/status'],
+    queryFn: async () => {
+      const response = await fetch('/api/auth/status');
+      return response.json();
+    },
+  });
+
+  useEffect(() => {
+    if (!authLoading && authData && !authData.isAuthenticated) {
+      setLocation('/login');
+    }
+  }, [authData, authLoading, setLocation]);
+
   const { data, isLoading, refetch, isRefetching } = useQuery<{ submissions: ContactSubmission[] }>({
     queryKey: ['/api/contact/submissions'],
     queryFn: async () => {
       const response = await fetch('/api/contact/submissions');
-      if (!response.ok) throw new Error('Failed to fetch submissions');
+      if (!response.ok) {
+        if (response.status === 401) {
+          setLocation('/login');
+          throw new Error('Unauthorized');
+        }
+        throw new Error('Failed to fetch submissions');
+      }
       return response.json();
     },
+    enabled: authData?.isAuthenticated,
   });
+
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' });
+      toast({
+        title: 'تم تسجيل الخروج',
+        description: 'تم تسجيل خروجك بنجاح',
+      });
+      setLocation('/login');
+    } catch (error) {
+      toast({
+        title: 'خطأ',
+        description: 'حدث خطأ أثناء تسجيل الخروج',
+        variant: 'destructive',
+      });
+    }
+  };
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Skeleton className="h-8 w-32" />
+      </div>
+    );
+  }
+
+  if (!authData?.isAuthenticated) {
+    return null;
+  }
 
   const submissions = data?.submissions || [];
 
@@ -44,15 +100,25 @@ export default function Admin() {
               <h1 className="text-2xl font-bold text-primary" data-testid="text-admin-title">لوحة التحكم</h1>
               <p className="text-muted-foreground mt-1">إدارة طلبات التواصل</p>
             </div>
-            <Button 
-              onClick={() => refetch()} 
-              variant="outline" 
-              disabled={isRefetching}
-              data-testid="button-refresh"
-            >
-              <RefreshCw className={`h-4 w-4 ml-2 ${isRefetching ? 'animate-spin' : ''}`} />
-              تحديث
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button 
+                onClick={() => refetch()} 
+                variant="outline" 
+                disabled={isRefetching}
+                data-testid="button-refresh"
+              >
+                <RefreshCw className={`h-4 w-4 ml-2 ${isRefetching ? 'animate-spin' : ''}`} />
+                تحديث
+              </Button>
+              <Button 
+                onClick={handleLogout} 
+                variant="destructive"
+                data-testid="button-logout"
+              >
+                <LogOut className="h-4 w-4 ml-2" />
+                تسجيل الخروج
+              </Button>
+            </div>
           </div>
         </div>
       </header>
