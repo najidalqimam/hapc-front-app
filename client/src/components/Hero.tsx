@@ -66,7 +66,12 @@ export function Hero() {
                   </span>
                 </Button>
               </ContactModal>
-              <Button size="lg" variant="ghost" className="h-14 text-lg px-8 rounded-none skew-x-[-10deg] text-foreground hover:bg-foreground/5 border border-foreground/10">
+              <Button 
+                size="lg" 
+                variant="ghost" 
+                className="h-14 text-lg px-8 rounded-none skew-x-[-10deg] text-foreground hover:bg-foreground/5 border border-foreground/10"
+                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 <span className="skew-x-[10deg]">{t('about')}</span>
               </Button>
             </div>
