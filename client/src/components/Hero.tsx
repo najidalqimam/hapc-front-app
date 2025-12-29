@@ -1,65 +1,104 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/lib/i18n';
 import { Button } from '@/components/ui/button';
-import { ChevronDown } from 'lucide-react';
-import heroBg from '@assets/generated_images/abstract_automotive_technology_background_with_blue_and_metallic_tones.png';
+import { ChevronRight, ArrowRight } from 'lucide-react';
+import heroBg from '@assets/generated_images/futuristic_geometric_mountain_peak_wireframe_in_dark_blue_and_silver.png';
 
 export function Hero() {
   const { t, dir } = useLanguage();
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Dynamic Geometric Background */}
       <div className="absolute inset-0 z-0">
         <img 
           src={heroBg} 
-          alt="Automotive Tech Background" 
-          className="w-full h-full object-cover"
+          alt="Geometric Peak" 
+          className="w-full h-full object-cover opacity-60 mix-blend-luminosity"
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent dark:from-background/95 dark:to-background/40" />
-        <div className="absolute inset-0 bg-primary/20 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </div>
 
-      <div className="container relative z-10 px-4 md:px-6 pt-20">
-        <div className={`max-w-3xl ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
+      <div className="container relative z-10 px-4 md:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: dir === 'rtl' ? 50 : -50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            className={`max-w-2xl ${dir === 'rtl' ? 'text-right' : 'text-left'}`}
           >
-            <h1 className={`text-5xl md:text-7xl font-bold mb-6 text-foreground tracking-tight leading-tight ${dir === 'ltr' ? 'font-en-headings' : ''}`}>
-              <span className="text-primary block mb-2">{t('heroTitle')}</span>
-              <span className="text-3xl md:text-5xl opacity-90 block">{t('heroTagline')}</span>
+            {/* Tagline Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6 backdrop-blur-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              {t('heroTitle')}
+            </div>
+
+            <h1 className={`text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight leading-[1.1] ${dir === 'ltr' ? 'font-en-headings uppercase' : ''}`}>
+              {dir === 'ltr' ? (
+                <>
+                  THE POWER <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">DRIVING</span><br />
+                  MOBILITY
+                </>
+              ) : (
+                <>
+                  القوة التي <span className="text-transparent bg-clip-text bg-gradient-to-l from-primary to-blue-400">تدفع</span><br />
+                  المستقبل
+                </>
+              )}
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
+            <p className="text-xl text-slate-300 mb-10 leading-relaxed border-l-4 border-primary pl-6 py-1">
               {t('heroDesc')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="text-lg px-8 py-6">
-                {t('contact')}
+              <Button size="lg" className="h-14 text-lg px-8 rounded-none skew-x-[-10deg] border border-primary bg-primary/10 hover:bg-primary text-primary hover:text-white transition-all group">
+                <span className="skew-x-[10deg] flex items-center gap-2">
+                  {t('contact')}
+                  {dir === 'rtl' ? <ChevronRight className="h-5 w-5 group-hover:-translate-x-1 transition-transform" /> : <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />}
+                </span>
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-background/50 backdrop-blur-sm">
-                {t('about')}
+              <Button size="lg" variant="ghost" className="h-14 text-lg px-8 rounded-none skew-x-[-10deg] text-white hover:bg-white/5 border border-white/10">
+                <span className="skew-x-[10deg]">{t('about')}</span>
               </Button>
-            </div>
-
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="flex items-center gap-3 text-sm font-medium text-foreground/80 bg-background/80 p-3 rounded-lg backdrop-blur-sm border border-border/50">
-                  <div className="h-2 w-2 rounded-full bg-primary shrink-0" />
-                  {t(`point${i}`)}
-                </div>
-              ))}
             </div>
           </motion.div>
-        </div>
-      </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block text-primary">
-        <ChevronDown className="h-8 w-8" />
+          {/* Abstract Visual Elements */}
+          <div className="hidden lg:block relative h-[600px]">
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-primary/20 rounded-full animate-[spin_60s_linear_infinite]" />
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/10 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
+             
+             {/* Floating Cards */}
+             <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="absolute top-20 right-10 p-6 bg-card/80 backdrop-blur-md border border-white/10 w-64 skew-x-[-5deg]"
+             >
+                <div className="skew-x-[5deg]">
+                  <h4 className="text-primary font-bold mb-1">ELITO</h4>
+                  <p className="text-xs text-muted-foreground">Power & Performance</p>
+                </div>
+             </motion.div>
+
+             <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="absolute bottom-40 left-10 p-6 bg-card/80 backdrop-blur-md border border-white/10 w-64 skew-x-[-5deg]"
+             >
+                <div className="skew-x-[5deg]">
+                  <h4 className="text-primary font-bold mb-1">DRONE VOLT</h4>
+                  <p className="text-xs text-muted-foreground">Aerial Surveillance</p>
+                </div>
+             </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

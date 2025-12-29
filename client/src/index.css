@@ -34,67 +34,40 @@
 }
 
 :root {
-  /* Corporate Blue Theme based on HPAC Logo */
-  /* Primary Blue approx #0047AB or similar strong blue */
-  --primary: 215 100% 34%; /* Strong Corporate Blue */
+  /* Concept 2: "Digital Horizon" - Darker, bolder, sharper */
+  
+  /* Primary: Electric Blue */
+  --primary: 215 100% 45%;
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 215 20% 96%; /* Very light cool gray */
-  --secondary-foreground: 215 100% 34%;
-
-  --background: 0 0% 100%;
-  --foreground: 215 50% 10%; /* Dark Navy almost black */
-
-  --card: 0 0% 100%;
-  --card-foreground: 215 50% 10%;
-
-  --popover: 0 0% 100%;
-  --popover-foreground: 215 50% 10%;
-
-  --muted: 210 20% 96%;
-  --muted-foreground: 215 20% 40%;
-
-  --accent: 215 30% 90%;
-  --accent-foreground: 215 100% 34%;
-
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-
-  --border: 215 20% 90%;
-  --input: 215 20% 90%;
-  --ring: 215 100% 34%;
-
-  --radius: 0.5rem;
-}
-
-.dark {
-  --background: 215 50% 5%; /* Very dark navy */
-  --foreground: 210 20% 98%;
-
-  --card: 215 50% 8%;
-  --card-foreground: 210 20% 98%;
-
-  --popover: 215 50% 8%;
-  --popover-foreground: 210 20% 98%;
-
-  --primary: 215 100% 50%; /* Brighter blue for dark mode */
-  --primary-foreground: 0 0% 100%;
-
-  --secondary: 215 30% 15%;
+  /* Secondary: Silver/Steel */
+  --secondary: 210 20% 20%; 
   --secondary-foreground: 210 20% 98%;
 
-  --muted: 215 30% 15%;
-  --muted-foreground: 215 20% 65%;
+  /* Background: Deep Gunmetal */
+  --background: 220 30% 8%;
+  --foreground: 210 20% 98%;
 
-  --accent: 215 30% 15%;
-  --accent-foreground: 210 20% 98%;
+  --card: 220 25% 12%;
+  --card-foreground: 210 20% 98%;
+
+  --popover: 220 25% 12%;
+  --popover-foreground: 210 20% 98%;
+
+  --muted: 220 20% 16%;
+  --muted-foreground: 215 20% 70%;
+
+  --accent: 215 100% 45%;
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 210 20% 98%;
 
-  --border: 215 30% 15%;
-  --input: 215 30% 15%;
-  --ring: 215 100% 50%;
+  --border: 220 20% 20%;
+  --input: 220 20% 20%;
+  --ring: 215 100% 45%;
+
+  --radius: 0.25rem; /* Sharper corners for "Peak" aesthetic */
 }
 
 @layer base {
@@ -103,6 +76,8 @@
   }
   body {
     @apply bg-background text-foreground font-cairo antialiased;
+    background-image: 
+      linear-gradient(to bottom right, hsl(220 30% 8%), hsl(220 30% 10%));
   }
 }
 
@@ -115,4 +90,12 @@
 }
 .font-ar {
   font-family: var(--font-cairo);
+}
+
+/* Custom Shape Divider */
+.clip-peak {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+}
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
