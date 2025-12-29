@@ -60,20 +60,36 @@ export function ContactModal({ children, open, onOpenChange }: ContactModalProps
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    console.log(values);
-    setIsSubmitting(false);
-    
-    toast({
-      title: t('formSuccessTitle'),
-      description: t('formSuccessDesc'),
-    });
-    
-    form.reset();
-    if (onOpenChange) {
-      onOpenChange(false);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit contact form');
+      }
+
+      toast({
+        title: t('formSuccessTitle'),
+        description: t('formSuccessDesc'),
+      });
+      
+      form.reset();
+      if (onOpenChange) {
+        onOpenChange(false);
+      }
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Failed to send message. Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
