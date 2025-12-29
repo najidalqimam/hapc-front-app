@@ -22,7 +22,7 @@ export function Contact() {
               </div>
               
               <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600">Together</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600"></span>
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
