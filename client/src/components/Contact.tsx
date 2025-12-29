@@ -120,7 +120,7 @@ export function Contact() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col items-center justify-center gap-4">
             <p className="text-sm text-muted-foreground">{t('copyright')}</p>
             <div className="flex items-center gap-4">
               <a 
