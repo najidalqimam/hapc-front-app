@@ -22,7 +22,6 @@ export function Contact() {
               </div>
               
               <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight">
-                Driving the Future <br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600">Together</span>
               </h3>
 
@@ -38,8 +37,8 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Vision 2030 Logo Card */}
-            <div className="shrink-0 relative group">
+            {/* Vision 2030 Logo Card - Removed as requested */}
+            {/* <div className="shrink-0 relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-emerald-900 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
               <div className="relative flex items-center justify-center p-8 bg-background/80 backdrop-blur-xl rounded-xl border border-white/10 w-[280px] h-[180px] shadow-2xl">
                 <img 
@@ -48,7 +47,7 @@ export function Contact() {
                   className="w-full h-full object-contain dark:invert drop-shadow-lg"
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
