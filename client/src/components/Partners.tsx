@@ -29,7 +29,15 @@ export function Partners() {
           </h2>
         </div>
 
-        <Carousel className="w-full max-w-5xl mx-auto" dir={dir}>
+        <Carousel 
+          className="w-full max-w-5xl mx-auto" 
+          dir={dir}
+          opts={{
+            align: "start",
+            loop: true,
+            direction: dir === 'rtl' ? 'rtl' : 'ltr'
+          }}
+        >
           <CarouselContent className="-ml-1">
             {partners.map((item, index) => {
               const CardBody = (
@@ -62,8 +70,8 @@ export function Partners() {
             })}
           </CarouselContent>
           <div className="flex justify-center gap-4 mt-8">
-             <CarouselPrevious className="static translate-y-0 bg-background border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground" />
-             <CarouselNext className="static translate-y-0 bg-background border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground" />
+             <CarouselPrevious className="static translate-y-0 bg-background border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground rtl:rotate-180" />
+             <CarouselNext className="static translate-y-0 bg-background border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground rtl:rotate-180" />
           </div>
         </Carousel>
       </div>

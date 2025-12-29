@@ -6,6 +6,7 @@ import { About } from '@/components/About';
 import { Values } from '@/components/Values';
 import { Partners } from '@/components/Partners';
 import { Contact } from '@/components/Contact';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
           <Values />
           <Partners />
           <Contact />
+          <WhatsAppButton />
         </div>
       </LanguageProvider>
     </ThemeProvider>
