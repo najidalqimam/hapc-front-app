@@ -14,7 +14,7 @@ export function Partners() {
   const { t, dir } = useLanguage();
 
   const partners = [
-    { key: 'partner1', icon: Battery, color: 'text-yellow-500 bg-yellow-500/10' },
+    { key: 'partner1', icon: Battery, color: 'text-yellow-500 bg-yellow-500/10', href: 'https://store.hpacsa.com/' },
     { key: 'partner2', icon: Lock, color: 'text-cyan-500 bg-cyan-500/10' },
     { key: 'partner3', icon: Plane, color: 'text-sky-500 bg-sky-500/10' },
   ];
@@ -31,23 +31,35 @@ export function Partners() {
 
         <Carousel className="w-full max-w-5xl mx-auto" dir={dir}>
           <CarouselContent className="-ml-1">
-            {partners.map((item, index) => (
-              <CarouselItem key={item.key} className="pl-1 md:basis-1/2 lg:basis-1/3 p-4">
-                <div className="p-1">
-                  <Card className="bg-card border-border h-[350px] flex flex-col justify-between group hover:border-primary/50 hover:shadow-lg transition-all duration-500">
-                    <CardContent className="flex flex-col items-center justify-center p-8 h-full text-center">
-                      <div className={`h-20 w-20 rounded-2xl flex items-center justify-center mb-6 ${item.color} group-hover:scale-110 transition-transform duration-500`}>
-                        <item.icon className="h-10 w-10" />
-                      </div>
-                      <h3 className="text-2xl font-bold mb-4 font-en-headings tracking-wide text-foreground">{t(`${item.key}Title`)}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {t(`${item.key}Desc`)}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
+            {partners.map((item, index) => {
+              const CardBody = (
+                <Card className="bg-card border-border h-[350px] flex flex-col justify-between group hover:border-primary/50 hover:shadow-lg transition-all duration-500 cursor-pointer">
+                  <CardContent className="flex flex-col items-center justify-center p-8 h-full text-center">
+                    <div className={`h-20 w-20 rounded-2xl flex items-center justify-center mb-6 ${item.color} group-hover:scale-110 transition-transform duration-500`}>
+                      <item.icon className="h-10 w-10" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4 font-en-headings tracking-wide text-foreground group-hover:text-primary transition-colors">{t(`${item.key}Title`)}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {t(`${item.key}Desc`)}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+
+              return (
+                <CarouselItem key={item.key} className="pl-1 md:basis-1/2 lg:basis-1/3 p-4">
+                  <div className="p-1">
+                    {item.href ? (
+                      <a href={item.href} target="_blank" rel="noopener noreferrer" className="block h-full">
+                        {CardBody}
+                      </a>
+                    ) : (
+                      CardBody
+                    )}
+                  </div>
+                </CarouselItem>
+              );
+            })}
           </CarouselContent>
           <div className="flex justify-center gap-4 mt-8">
              <CarouselPrevious className="static translate-y-0 bg-background border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground" />
