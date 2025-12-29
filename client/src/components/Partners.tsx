@@ -14,17 +14,17 @@ export function Partners() {
   const { t, dir } = useLanguage();
 
   const partners = [
-    { key: 'partner1', icon: Battery, color: 'text-yellow-500' },
-    { key: 'partner2', icon: Lock, color: 'text-cyan-500' },
-    { key: 'partner3', icon: Plane, color: 'text-sky-500' },
+    { key: 'partner1', icon: Battery, color: 'text-yellow-500 bg-yellow-500/10' },
+    { key: 'partner2', icon: Lock, color: 'text-cyan-500 bg-cyan-500/10' },
+    { key: 'partner3', icon: Plane, color: 'text-sky-500 bg-sky-500/10' },
   ];
 
   return (
-    <section id="partners" className="py-24 bg-secondary/5 border-y border-white/5">
+    <section id="partners" className="py-24 bg-muted/30 border-y border-border transition-colors duration-300">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-16">
           <span className="text-primary text-sm font-bold tracking-widest uppercase mb-2 block">Our Network</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
             {t('partnersTitle')}
           </h2>
         </div>
@@ -34,13 +34,13 @@ export function Partners() {
             {partners.map((item, index) => (
               <CarouselItem key={item.key} className="pl-1 md:basis-1/2 lg:basis-1/3 p-4">
                 <div className="p-1">
-                  <Card className="bg-card border-white/5 h-[350px] flex flex-col justify-between group hover:border-primary/50 transition-colors duration-500">
+                  <Card className="bg-card border-border h-[350px] flex flex-col justify-between group hover:border-primary/50 hover:shadow-lg transition-all duration-500">
                     <CardContent className="flex flex-col items-center justify-center p-8 h-full text-center">
-                      <div className={`h-20 w-20 rounded-2xl bg-white/5 flex items-center justify-center mb-6 ${item.color} group-hover:scale-110 transition-transform duration-500`}>
+                      <div className={`h-20 w-20 rounded-2xl flex items-center justify-center mb-6 ${item.color} group-hover:scale-110 transition-transform duration-500`}>
                         <item.icon className="h-10 w-10" />
                       </div>
-                      <h3 className="text-2xl font-bold mb-4 font-en-headings tracking-wide text-white">{t(`${item.key}Title`)}</h3>
-                      <p className="text-slate-400 text-sm leading-relaxed">
+                      <h3 className="text-2xl font-bold mb-4 font-en-headings tracking-wide text-foreground">{t(`${item.key}Title`)}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
                         {t(`${item.key}Desc`)}
                       </p>
                     </CardContent>
@@ -50,8 +50,8 @@ export function Partners() {
             ))}
           </CarouselContent>
           <div className="flex justify-center gap-4 mt-8">
-             <CarouselPrevious className="static translate-y-0 bg-transparent border-white/20 text-white hover:bg-primary hover:border-primary hover:text-white" />
-             <CarouselNext className="static translate-y-0 bg-transparent border-white/20 text-white hover:bg-primary hover:border-primary hover:text-white" />
+             <CarouselPrevious className="static translate-y-0 bg-background border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground" />
+             <CarouselNext className="static translate-y-0 bg-background border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground" />
           </div>
         </Carousel>
       </div>

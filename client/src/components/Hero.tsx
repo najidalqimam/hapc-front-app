@@ -14,9 +14,10 @@ export function Hero() {
         <img 
           src={heroBg} 
           alt="Geometric Peak" 
-          className="w-full h-full object-cover opacity-60 mix-blend-luminosity"
+          className="w-full h-full object-cover opacity-60 dark:opacity-60 mix-blend-luminosity"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        {/* Light mode gradient overlay: White to transparent */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent dark:from-background dark:via-background/80" />
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </div>
 
@@ -37,7 +38,7 @@ export function Hero() {
               {t('heroTitle')}
             </div>
 
-            <h1 className={`text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight leading-[1.1] ${dir === 'ltr' ? 'font-en-headings uppercase' : ''}`}>
+            <h1 className={`text-5xl md:text-7xl font-bold mb-6 text-foreground tracking-tight leading-[1.1] ${dir === 'ltr' ? 'font-en-headings uppercase' : ''}`}>
               {dir === 'ltr' ? (
                 <>
                   THE POWER <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">DRIVING</span><br />
@@ -51,34 +52,34 @@ export function Hero() {
               )}
             </h1>
             
-            <p className="text-xl text-slate-300 mb-10 leading-relaxed border-l-4 border-primary pl-6 py-1">
+            <p className="text-xl text-muted-foreground mb-10 leading-relaxed border-l-4 border-primary pl-6 py-1">
               {t('heroDesc')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="h-14 text-lg px-8 rounded-none skew-x-[-10deg] border border-primary bg-primary/10 hover:bg-primary text-primary hover:text-white transition-all group">
+              <Button size="lg" className="h-14 text-lg px-8 rounded-none skew-x-[-10deg] border border-primary bg-primary hover:bg-primary/90 text-primary-foreground transition-all group shadow-lg shadow-primary/20">
                 <span className="skew-x-[10deg] flex items-center gap-2">
                   {t('contact')}
                   {dir === 'rtl' ? <ChevronRight className="h-5 w-5 group-hover:-translate-x-1 transition-transform" /> : <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />}
                 </span>
               </Button>
-              <Button size="lg" variant="ghost" className="h-14 text-lg px-8 rounded-none skew-x-[-10deg] text-white hover:bg-white/5 border border-white/10">
+              <Button size="lg" variant="ghost" className="h-14 text-lg px-8 rounded-none skew-x-[-10deg] text-foreground hover:bg-foreground/5 border border-foreground/10">
                 <span className="skew-x-[10deg]">{t('about')}</span>
               </Button>
             </div>
           </motion.div>
 
-          {/* Abstract Visual Elements */}
+          {/* Abstract Visual Elements - Only show on dark mode or adjust color for light */}
           <div className="hidden lg:block relative h-[600px]">
              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-primary/20 rounded-full animate-[spin_60s_linear_infinite]" />
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/10 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-foreground/10 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
              
              {/* Floating Cards */}
              <motion.div 
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="absolute top-20 right-10 p-6 bg-card/80 backdrop-blur-md border border-white/10 w-64 skew-x-[-5deg]"
+                className="absolute top-20 right-10 p-6 bg-card/80 backdrop-blur-md border border-border w-64 skew-x-[-5deg] shadow-xl"
              >
                 <div className="skew-x-[5deg]">
                   <h4 className="text-primary font-bold mb-1">ELITO</h4>
@@ -90,7 +91,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
-                className="absolute bottom-40 left-10 p-6 bg-card/80 backdrop-blur-md border border-white/10 w-64 skew-x-[-5deg]"
+                className="absolute bottom-40 left-10 p-6 bg-card/80 backdrop-blur-md border border-border w-64 skew-x-[-5deg] shadow-xl"
              >
                 <div className="skew-x-[5deg]">
                   <h4 className="text-primary font-bold mb-1">DRONE VOLT</h4>

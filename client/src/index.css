@@ -34,18 +34,41 @@
 }
 
 :root {
-  /* Concept 2: "Digital Horizon" - Darker, bolder, sharper */
-  
-  /* Primary: Electric Blue */
-  --primary: 215 100% 45%;
+  /* LIGHT MODE (Corporate & Clean) */
+  --background: 210 20% 98%; /* Light Gray/White */
+  --foreground: 215 50% 10%; /* Dark Navy */
+
+  --card: 0 0% 100%; /* Pure White */
+  --card-foreground: 215 50% 10%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 215 50% 10%;
+
+  --primary: 215 100% 34%; /* Classic HPAC Blue */
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary: Silver/Steel */
-  --secondary: 210 20% 20%; 
-  --secondary-foreground: 210 20% 98%;
+  --secondary: 210 20% 90%; /* Light Silver */
+  --secondary-foreground: 215 50% 10%;
 
-  /* Background: Deep Gunmetal */
-  --background: 220 30% 8%;
+  --muted: 210 20% 90%;
+  --muted-foreground: 215 20% 40%;
+
+  --accent: 215 100% 34%; /* Blue Accent */
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 215 20% 85%;
+  --input: 215 20% 85%;
+  --ring: 215 100% 34%;
+
+  --radius: 0.25rem;
+}
+
+.dark {
+  /* DARK MODE (Digital Horizon - Existing) */
+  --background: 220 30% 8%; /* Deep Gunmetal */
   --foreground: 210 20% 98%;
 
   --card: 220 25% 12%;
@@ -53,6 +76,12 @@
 
   --popover: 220 25% 12%;
   --popover-foreground: 210 20% 98%;
+
+  --primary: 215 100% 45%; /* Electric Blue */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 210 20% 20%;
+  --secondary-foreground: 210 20% 98%;
 
   --muted: 220 20% 16%;
   --muted-foreground: 215 20% 70%;
@@ -66,8 +95,6 @@
   --border: 220 20% 20%;
   --input: 220 20% 20%;
   --ring: 215 100% 45%;
-
-  --radius: 0.25rem; /* Sharper corners for "Peak" aesthetic */
 }
 
 @layer base {
@@ -75,13 +102,11 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-cairo antialiased;
-    background-image: 
-      linear-gradient(to bottom right, hsl(220 30% 8%), hsl(220 30% 10%));
+    @apply bg-background text-foreground font-cairo antialiased transition-colors duration-300;
   }
 }
 
-/* Custom Utilities for Language Direction */
+/* Custom Utilities */
 .font-en-headings {
   font-family: var(--font-rajdhani);
 }
