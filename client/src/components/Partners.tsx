@@ -14,9 +14,9 @@ export function Partners() {
   const { t, dir } = useLanguage();
 
   const partners = [
-    { key: 'partner1', icon: Battery, color: 'text-yellow-500 bg-yellow-500/10', href: 'https://store.hpacsa.com/' },
+    { key: 'partner1', icon: Battery, color: 'text-red-600 bg-red-600/10', href: 'https://store.hpacsa.com/' },
     { key: 'partner2', icon: Lock, color: 'text-cyan-500 bg-cyan-500/10' },
-    { key: 'partner3', icon: Plane, color: 'text-sky-500 bg-sky-500/10' },
+    { key: 'partner3', icon: Plane, color: 'text-blue-500 bg-blue-500/10' },
   ];
 
   return (
