@@ -33,7 +33,7 @@ export default function Admin() {
   const { data: authData, isLoading: authLoading } = useQuery<{ isAuthenticated: boolean }>({
     queryKey: ['/api/auth/status'],
     queryFn: async () => {
-      const response = await fetch('/api/auth/status');
+      const response = await fetch('/api/auth/status', { credentials: 'include' });
       return response.json();
     },
   });
@@ -47,7 +47,7 @@ export default function Admin() {
   const { data, isLoading, refetch, isRefetching } = useQuery<{ submissions: ContactSubmission[] }>({
     queryKey: ['/api/contact/submissions'],
     queryFn: async () => {
-      const response = await fetch('/api/contact/submissions');
+      const response = await fetch('/api/contact/submissions', { credentials: 'include' });
       if (!response.ok) {
         if (response.status === 401) {
           setLocation('/login');
@@ -62,7 +62,7 @@ export default function Admin() {
 
   const handleLogout = async () => {
     try {
-      await fetch('/api/auth/logout', { method: 'POST' });
+      await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' });
       toast({
         title: 'تم تسجيل الخروج',
         description: 'تم تسجيل خروجك بنجاح',
