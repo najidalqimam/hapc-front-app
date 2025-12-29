@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/lib/i18n';
 import { useTheme } from '@/lib/theme';
 import { Button } from '@/components/ui/button';
-import { Globe, Menu, Sun, Moon } from 'lucide-react';
+import { Globe, Menu, Sun, Moon, Phone, Mail, MapPin } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import hpacLogo from '@assets/_شركة_هايست_بيك_أوتوموتيف__1766994137275.png';
 import { ContactModal } from '@/components/ContactModal';
 
 export function Navbar() {
-  const { language, setLanguage, t } = useLanguage();
+  const { language, setLanguage, t, dir } = useLanguage();
   const { theme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -36,18 +36,39 @@ export function Navbar() {
     { key: 'about', href: '#about' },
     { key: 'values', href: '#values' },
     { key: 'partners', href: '#partners' },
-    // Removed direct href for contact to handle via modal
   ];
 
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsContactOpen(true);
-    setIsOpen(false); // Close mobile menu if open
+    setIsOpen(false);
   };
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-background/90 backdrop-blur-md border-b border-border py-2' : 'bg-transparent py-6'}`}>
+      {/* Top Bar */}
+      <div className="bg-primary text-primary-foreground text-xs py-2 hidden lg:block relative z-[60]">
+        <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2">
+              <MapPin className="h-3.5 w-3.5" />
+              <span>{t('address')}</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-6">
+            <a href="tel:+966552860747" className="flex items-center gap-2 hover:text-white/80 transition-colors">
+              <Phone className="h-3.5 w-3.5" />
+              <span dir="ltr">+966 552860747</span>
+            </a>
+            <a href="mailto:info@hphc-sa.com" className="flex items-center gap-2 hover:text-white/80 transition-colors">
+              <Mail className="h-3.5 w-3.5" />
+              <span>info@hphc-sa.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <nav className={`fixed top-8 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'top-0 bg-background/90 backdrop-blur-md border-b border-border py-2' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
@@ -108,8 +129,24 @@ export function Navbar() {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side={language === 'ar' ? 'right' : 'left'} className="w-[300px] border-l-border bg-background/95 backdrop-blur-xl">
+              <SheetContent side={language === 'ar' ? 'right' : 'left'} className="w-[300px] border-l-border bg-background/95 backdrop-blur-xl overflow-y-auto">
                 <div className="flex flex-col gap-8 mt-8">
+                  {/* Mobile Contact Info */}
+                  <div className="flex flex-col gap-4 text-sm text-muted-foreground border-b border-border pb-4">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4 text-primary" />
+                      <span className="text-xs">{t('address')}</span>
+                    </div>
+                    <a href="tel:+966552860747" className="flex items-center gap-2">
+                      <Phone className="h-4 w-4 text-primary" />
+                      <span dir="ltr">+966 552860747</span>
+                    </a>
+                    <a href="mailto:info@hphc-sa.com" className="flex items-center gap-2">
+                      <Mail className="h-4 w-4 text-primary" />
+                      <span>info@hphc-sa.com</span>
+                    </a>
+                  </div>
+
                   <div className="flex flex-col gap-4">
                     {navItems.map((item) => (
                       <a
