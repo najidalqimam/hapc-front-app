@@ -1,6 +1,5 @@
 import { useLanguage } from '@/lib/i18n';
-import { Mail, MapPin, Phone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Mail, MapPin, Phone, Linkedin, Twitter, Instagram, Facebook } from 'lucide-react';
 
 export function Contact() {
   const { t, dir } = useLanguage();
@@ -120,8 +119,48 @@ export function Contact() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          {t('copyright')}
+        <div className="mt-16 pt-8 border-t border-border">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-muted-foreground">{t('copyright')}</p>
+            <div className="flex items-center gap-4">
+              <a 
+                href="https://www.linkedin.com/company/hpac-sa" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                data-testid="link-linkedin"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://twitter.com/hpacsa" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                data-testid="link-twitter"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://www.instagram.com/hpacsa" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                data-testid="link-instagram"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://www.facebook.com/hpacsa" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                data-testid="link-facebook"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
