@@ -7,30 +7,47 @@ export function Contact() {
 
   return (
     <footer id="contact" className="bg-background border-t border-border">
-      {/* Vision 2030 Banner */}
-      <div className="bg-emerald-900/10 border-b border-emerald-900/20 py-12">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col md:flex-row items-center gap-8 justify-between">
-            <div>
-              <h3 className="text-2xl font-bold text-emerald-800 dark:text-emerald-400 mb-4">{t('vision2030Title')}</h3>
-              <ul className="space-y-2 text-emerald-900/80 dark:text-emerald-300/80">
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  {t('vision2030p1')}
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  {t('vision2030p2')}
-                </li>
-              </ul>
+      {/* Vision 2030 Banner - Redesigned */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-emerald-950 to-background border-b border-emerald-900/20 py-16">
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
+        <div className="container px-4 md:px-6 relative z-10">
+          <div className="flex flex-col md:flex-row items-center gap-12 justify-between">
+            <div className="flex-1 text-center md:text-start">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-500 text-sm font-medium mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                {t('vision2030Title')}
+              </div>
+              
+              <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight">
+                Driving the Future <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600">Together</span>
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="bg-background/40 backdrop-blur-md border border-emerald-500/10 p-4 rounded-xl hover:border-emerald-500/30 transition-colors">
+                    <div className="h-2 w-2 rounded-full bg-emerald-500 mb-3" />
+                    <p className="text-sm text-foreground/80 font-medium leading-relaxed">
+                      {t(`vision2030p${i}`)}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
-            {/* Vision 2030 Logo */}
-            <div className="flex items-center justify-center p-2 bg-white/5 rounded-lg border border-white/10 w-[200px]">
-              <img 
-                src="/attached_assets/Saudi_Vision_2030_logo.svg_1766996095753.png" 
-                alt="Saudi Vision 2030" 
-                className="w-full h-auto object-contain dark:invert"
-              />
+
+            {/* Vision 2030 Logo Card */}
+            <div className="shrink-0 relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-emerald-900 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+              <div className="relative flex items-center justify-center p-8 bg-background/80 backdrop-blur-xl rounded-xl border border-white/10 w-[280px] h-[180px] shadow-2xl">
+                <img 
+                  src="/attached_assets/Saudi_Vision_2030_logo.svg_1766996095753.png" 
+                  alt="Saudi Vision 2030" 
+                  className="w-full h-full object-contain dark:invert drop-shadow-lg"
+                />
+              </div>
             </div>
           </div>
         </div>
