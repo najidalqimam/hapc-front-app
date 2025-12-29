@@ -46,7 +46,7 @@ export function Partners() {
                     <div className={`h-20 w-20 rounded-2xl flex items-center justify-center mb-6 ${item.color} group-hover:scale-110 transition-transform duration-500`}>
                       <item.icon className="h-10 w-10" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 font-en-headings tracking-wide text-foreground group-hover:text-primary transition-colors">{t(`${item.key}Title`)}</h3>
+                    <h3 className={`text-2xl font-bold mb-4 tracking-wide text-foreground group-hover:text-primary transition-colors ${dir === 'ltr' ? 'font-en-headings' : ''}`}>{t(`${item.key}Title`)}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {t(`${item.key}Desc`)}
                     </p>
