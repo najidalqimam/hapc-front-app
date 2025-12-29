@@ -64,7 +64,6 @@ export function Contact() {
                   <MapPin className="h-6 w-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold mb-1">{t('contact')}</h4>
                   <p className="text-muted-foreground">{t('address')}</p>
                 </div>
               </div>
@@ -74,7 +73,6 @@ export function Contact() {
                   <Phone className="h-6 w-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold mb-1">{t('contact')}</h4>
                   <p className="text-muted-foreground" dir="ltr">+966 552860747</p>
                 </div>
               </div>
@@ -84,7 +82,6 @@ export function Contact() {
                   <Mail className="h-6 w-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold mb-1">{t('contact')}</h4>
                   <a href="mailto:info@hphc-sa.com" className="text-muted-foreground hover:text-primary transition-colors">info@hphc-sa.com</a>
                 </div>
               </div>
