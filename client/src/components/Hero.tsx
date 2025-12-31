@@ -24,11 +24,42 @@ export function Hero() {
 
       <div className="container relative z-10 px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Abstract Visual Elements - Only show on large screens */}
+          <div className="hidden lg:block relative h-[600px] order-2 lg:order-1">
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-primary/20 rounded-full animate-[spin_60s_linear_infinite]" />
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-foreground/10 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
+             
+             {/* Floating Cards */}
+             <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="absolute top-20 right-10 p-6 bg-card/80 backdrop-blur-md border border-border w-64 skew-x-[-5deg] shadow-xl"
+             >
+                <div className="skew-x-[5deg]">
+                  <h4 className="text-primary font-bold mb-1">ELITO</h4>
+                  <p className="text-xs text-muted-foreground">Power & Performance</p>
+                </div>
+             </motion.div>
+
+             <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="absolute bottom-40 left-10 p-6 bg-card/80 backdrop-blur-md border border-border w-64 skew-x-[-5deg] shadow-xl"
+             >
+                <div className="skew-x-[5deg]">
+                  <h4 className="text-primary font-bold mb-1">DRONE VOLT</h4>
+                  <p className="text-xs text-muted-foreground">Aerial Surveillance</p>
+                </div>
+             </motion.div>
+          </div>
+
           <motion.div
             initial={{ opacity: 0, x: dir === 'rtl' ? 50 : -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className={`max-w-2xl ${dir === 'rtl' ? 'text-right' : 'text-left'}`}
+            className={`max-w-2xl order-1 lg:order-2 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}
           >
             {/* Tagline Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6 backdrop-blur-sm">
@@ -76,37 +107,6 @@ export function Hero() {
               </Button>
             </div>
           </motion.div>
-
-          {/* Abstract Visual Elements - Only show on dark mode or adjust color for light */}
-          <div className="hidden lg:block relative h-[600px]">
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-primary/20 rounded-full animate-[spin_60s_linear_infinite]" />
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-foreground/10 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
-             
-             {/* Floating Cards */}
-             <motion.div 
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="absolute top-20 right-10 p-6 bg-card/80 backdrop-blur-md border border-border w-64 skew-x-[-5deg] shadow-xl"
-             >
-                <div className="skew-x-[5deg]">
-                  <h4 className="text-primary font-bold mb-1">ELITO</h4>
-                  <p className="text-xs text-muted-foreground">Power & Performance</p>
-                </div>
-             </motion.div>
-
-             <motion.div 
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-                className="absolute bottom-40 left-10 p-6 bg-card/80 backdrop-blur-md border border-border w-64 skew-x-[-5deg] shadow-xl"
-             >
-                <div className="skew-x-[5deg]">
-                  <h4 className="text-primary font-bold mb-1">DRONE VOLT</h4>
-                  <p className="text-xs text-muted-foreground">Aerial Surveillance</p>
-                </div>
-             </motion.div>
-          </div>
         </div>
       </div>
     </section>
