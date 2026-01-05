@@ -26,9 +26,6 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Abstract Visual Elements - Only show on large screens */}
           <div className="hidden lg:block relative h-[600px] order-2 lg:order-1">
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-primary/20 rounded-full animate-[spin_60s_linear_infinite]" />
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-foreground/10 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
-             
              {/* Floating Cards */}
              <motion.div 
                 initial={{ opacity: 0, y: 50 }}
