@@ -14,7 +14,7 @@ export function Partners() {
   const { t, dir } = useLanguage();
 
   const partners = [
-    { key: 'partner1', icon: Battery, color: 'text-red-600 bg-red-600/10', href: 'https://store.hpacsa.com/' },
+    { key: 'partner1', icon: Battery, color: 'text-red-600 bg-red-600/10', href: 'https://elitogoksa.com/' },
     { key: 'partner2', icon: Lock, color: 'text-orange-500 bg-orange-500/10', href: 'https://cyberteq.com/' },
     { key: 'partner3', icon: Navigation, color: 'text-blue-500 bg-blue-500/10', href: 'https://www.dronevolt.com/en/' },
   ];
