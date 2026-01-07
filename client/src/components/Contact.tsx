@@ -1,5 +1,5 @@
 import { useLanguage } from '@/lib/i18n';
-import { Mail, MapPin, Phone, Linkedin, Instagram } from 'lucide-react';
+import { Mail, MapPin, Phone, Linkedin, Instagram, Facebook } from 'lucide-react';
 
 export function Contact() {
   const { t, dir } = useLanguage();
@@ -122,9 +122,9 @@ export function Contact() {
         <div className="mt-16 pt-8 border-t border-border">
           <div className="flex flex-col items-center justify-center gap-4">
             <p className="text-sm text-muted-foreground">{t('copyright')}</p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 flex-wrap justify-center">
               <a 
-                href="https://www.linkedin.com/company/highest-peak-automotive-company/posts/?feedView=all" 
+                href="https://www.linkedin.com/company/highest-peak-automotive-company/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -133,7 +133,7 @@ export function Contact() {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a 
-                href="https://x.com/hpacsa" 
+                href="https://x.com/elitosaudi" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -144,7 +144,7 @@ export function Contact() {
                 </svg>
               </a>
               <a 
-                href="https://www.instagram.com/hpacsa" 
+                href="https://www.instagram.com/elitosaudi" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -153,7 +153,7 @@ export function Contact() {
                 <Instagram className="h-5 w-5" />
               </a>
               <a 
-                href="https://www.tiktok.com/@hpacsa" 
+                href="https://www.tiktok.com/@elitosaudi" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -161,6 +161,26 @@ export function Contact() {
               >
                 <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                </svg>
+              </a>
+              <a 
+                href="https://www.facebook.com/share/18BAUy1vZ9/?mibextid=wwXIfr" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                data-testid="link-facebook"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://www.threads.com/@elitosaudi" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                data-testid="link-threads"
+              >
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.96-.065-1.182.408-2.256 1.332-3.023.88-.73 2.132-1.13 3.628-1.154 1.12-.018 2.152.127 3.082.433-.02-.962-.262-1.7-.73-2.193-.505-.53-1.287-.805-2.322-.817-1.741.022-2.794.662-3.227 1.133l-1.39-1.532c.923-.94 2.534-1.722 4.657-1.72 1.617.007 2.902.458 3.82 1.34.912.877 1.39 2.14 1.42 3.757.013.577-.012 1.204-.076 1.87.706.442 1.282.991 1.703 1.63.606.92.91 2.016.906 3.263-.005 1.613-.585 3.093-1.678 4.28-1.601 1.738-4.016 2.648-7.186 2.708zm.09-7.918c-1.229.023-2.174.305-2.734.817-.477.437-.692.992-.66 1.697.031.66.355 1.2.938 1.561.623.387 1.415.554 2.291.486 1.078-.083 1.89-.493 2.414-1.22.438-.609.718-1.436.831-2.465-.98-.326-2.058-.895-3.08-.876z"/>
                 </svg>
               </a>
             </div>
